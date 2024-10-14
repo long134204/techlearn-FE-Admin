@@ -1,7 +1,7 @@
 <template>
 
     <div class="d-flex justify-content-between align-items-center my-4 container">
-    <p class="course-list-title">Danh sách người dùng</p>
+    <h3 class="course-list-title">Danh sách người dùng</h3>
     <button class="btn btn-primary create-course-btn align-items-center" @click="createUser">
       Thêm mới
     </button>

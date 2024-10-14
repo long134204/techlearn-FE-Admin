@@ -73,9 +73,8 @@ const totalRows = ref(0);
 
 const fetchAssignments = async () => {
   try {
-    const response = await axios.get(`${rootAPI}/lessons`, {
+    const response = await axios.get(`${rootAPI}/chapters/${idChapter}/lessons`, {
       params: {
-        idChapter: idChapter,
         page: currentPage.value,
         pageSize: perPage.value
       },

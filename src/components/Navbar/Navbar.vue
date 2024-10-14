@@ -3,7 +3,7 @@
     <!-- Modern Sidebar -->
     <div class="sidebar">
       <router-link to="/" class="brand">
-        <span>Techlearn</span>
+        <span>Techlearn Admin</span>
       </router-link>
       <ul class="nav flex-column">
         <li class="nav-item" v-on:click="changeActive(1)">

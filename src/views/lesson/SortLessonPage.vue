@@ -78,7 +78,7 @@ async function saveOrder() {
 
 const fetchChapter = async () => {
     try {
-        const response = await axios.get(`${rootAPI}/lessons?idChapter=${idChapter}`);
+        const response = await axios.get(`${rootAPI}/chapters/${idChapter}/lessons`);
         data.assignments = response.data.data.items;
         data.assignments = data.assignments.map((item) => {
             let titleUpdated = item.title;

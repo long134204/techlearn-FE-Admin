@@ -42,13 +42,11 @@
         </p>
         <p>
           <span class="fw-bold">Giảng viên: </span>
-          <span
-            v-if="
-              dataCourse.course &&
-              dataCourse.course.teacher &&
-              dataCourse.course.teacher.length > 0
-            "
-          >
+          <span v-if="
+            dataCourse.course &&
+            dataCourse.course.teacher &&
+            dataCourse.course.teacher.length > 0
+          ">
             {{
               dataCourse.course.teacher.map((teacher) => teacher.name).join(", ")
             }}
@@ -62,11 +60,8 @@
   <div class="header-table px-4">
     <h5 class="m-0">Danh sách chương</h5>
     <div>
-      <router-link
-        :to="{ path: '/chapter-mentor-management', query: { idCourse: idCourse } }"
-        type="button"
-        class="btn btn-primary mr-3"
-        >Chương & Hỗ trợ
+      <router-link :to="{ path: '/chapter-mentor-management', query: { idCourse: idCourse } }" type="button"
+        class="btn btn-primary mr-3">Chương & Hỗ trợ
       </router-link>
       <router-link :to="{ path: '/add-chapter', query: { idCourse: idCourse } }" type="button"
         class="btn btn-primary mr-3">Thêm chương</router-link>
@@ -150,23 +145,25 @@ const fetchCourse = async () => {
   }
 };
 
+// Hàm xử lý xóa khóa học
+const deleteChapter = (chapter) => {
+  isModalVisible.value = true;
+  itemToDelete.value = chapter;
+};
+
 const handleDelete = async () => {
   try {
     await axios.delete(`${rootAPI}/chapters/${itemToDelete.value.id}`);
     await fetchChapter();
     isModalVisible.value = false;
-    router.replace({ path: route.path, query: { idCourse: idCourse } });
     toast.success("Xóa chương thành công");
+    setTimeout(() => {
+      router.replace({ path: route.path, query: { idCourse: idCourse } });
+    }, 1000);
   } catch (error) {
     console.log(error);
     toast.error("Có lỗi xảy ra");
   }
-};
-
-// Hàm xử lý xóa khóa học
-const deleteChapter = (chapter) => {
-  isModalVisible.value = true;
-  itemToDelete.value = chapter;
 };
 
 const handlePageChange = (page) => {

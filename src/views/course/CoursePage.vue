@@ -1,6 +1,6 @@
 <template>
-  <div class="d-flex justify-content-between align-items-center my-4 container">
-    <p class="course-list-title">Danh sách khóa học</p>
+  <div class="d-flex justify-content-between align-items-center my-4 container px-4">
+    <h4 class="course-list-title">Danh sách khóa học</h4>
     <button class="btn btn-primary create-course-btn align-items-center" @click="createCourse">
       Thêm mới
     </button>
